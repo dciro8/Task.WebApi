@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task.Domain.Interfaces
+namespace Task.DataInfrastructure.Interfaces
 {
-    public interface ITransaction
+    public interface IEdit<T>
     {
-        void saveChanges();
+        T Edit(T entity);
     }
 }

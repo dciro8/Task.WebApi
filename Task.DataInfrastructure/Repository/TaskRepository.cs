@@ -1,10 +1,11 @@
-﻿using Task.DataInfrastructure.Context;
-using Task.Domain.Repository;
+﻿using Task.DataInfrastructure.Base;
+using Task.DataInfrastructure.Context;
 using Task.Domain.Entities;
+using Task.Domain.Ports;
 
 namespace Task.DataInfrastructure.Repository
 {
-    public class TaskRepository : IBaseRepository<TASK, int>
+    public class TaskRepository : IBaseRepository<TASK, int>,ITaskRepository
     {
         private TaskDbContext _db;
 
@@ -16,6 +17,7 @@ namespace Task.DataInfrastructure.Repository
         public TASK Add(TASK entity)
         {
             _db.Add(entity);
+            saveChanges();
             return entity;
         }
 
@@ -27,6 +29,7 @@ namespace Task.DataInfrastructure.Repository
             if (register != null)
             { 
                 _db.TASK.Remove(register);
+                saveChanges();
                 return 1;
             }
             else return 0;
@@ -45,6 +48,7 @@ namespace Task.DataInfrastructure.Repository
                 register.Date_Updated = DateTime.Now;
 
                 _db.Entry(register).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                saveChanges();
             }
             return register;
 
@@ -56,15 +60,14 @@ namespace Task.DataInfrastructure.Repository
         }
 
         //public TASK GeTaskById(int TId)Ciro
-            public TASK GeTaskById(Guid TId)
+        public TASK GeTaskById(Guid TId)
         {
             return _db.TASK.Where(x => x.Id.Equals(TId)).FirstOrDefault();
         }
 
-
         public void saveChanges()
         {
-            _db.SaveChanges();  
+            _db.SaveChanges();
         }
     }
 }

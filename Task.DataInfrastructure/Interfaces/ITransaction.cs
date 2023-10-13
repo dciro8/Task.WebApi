@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task.Domain.Interfaces
+namespace Task.DataInfrastructure.Interfaces
 {
-    public interface IDelete<T>
+    public interface ITransaction
     {
-        int Delete(T entity);
+        void saveChanges();
     }
 }

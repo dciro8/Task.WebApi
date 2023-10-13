@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task.Domain.Interfaces
+namespace Task.DataInfrastructure.Interfaces
 {
-    public interface IEdit<T>
+    public  interface IAdd<T>
     {
-        T Edit(T entity);
+        T Add(T entity);
     }
 }

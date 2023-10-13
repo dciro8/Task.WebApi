@@ -7,13 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.WebApi", "Task.WebApi\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Domain", "Task.Domain\Task.Domain.csproj", "{2FF91103-8AE1-4550-B60A-BC99E35A9B62}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Application", "Task.Application\Task.Application.csproj", "{84505318-30CC-44A6-8BE7-A969B2406A55}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.DataInfrastructure", "Task.DataInfrastructure\Task.DataInfrastructure.csproj", "{BB8FD47E-CE05-4D3C-ACD3-790C396F0493}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Models", "Task.Models\Task.Models.csproj", "{68771A6E-FE2E-464B-A099-F2426092F5C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.Utilities", "Task.Utilities\Task.Utilities.csproj", "{3865197E-5621-4802-BE94-A3AA404C6075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Utilities", "Task.Utilities\Task.Utilities.csproj", "{3865197E-5621-4802-BE94-A3AA404C6075}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.UnitTest", "Task.UnitTest\Task.UnitTest.csproj", "{948B36C6-4D06-4CBD-8453-E7A0764EF040}"
 EndProject
@@ -31,10 +29,6 @@ Global
 		{2FF91103-8AE1-4550-B60A-BC99E35A9B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FF91103-8AE1-4550-B60A-BC99E35A9B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FF91103-8AE1-4550-B60A-BC99E35A9B62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{84505318-30CC-44A6-8BE7-A969B2406A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{84505318-30CC-44A6-8BE7-A969B2406A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{84505318-30CC-44A6-8BE7-A969B2406A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{84505318-30CC-44A6-8BE7-A969B2406A55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB8FD47E-CE05-4D3C-ACD3-790C396F0493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB8FD47E-CE05-4D3C-ACD3-790C396F0493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB8FD47E-CE05-4D3C-ACD3-790C396F0493}.Release|Any CPU.ActiveCfg = Release|Any CPU

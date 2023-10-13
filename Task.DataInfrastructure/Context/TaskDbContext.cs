@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Task.DataInfrastructure;
+﻿using Microsoft.EntityFrameworkCore;
 using Task.Domain.Entities;
-using Task.Utilities.Encrypt;
-using Task.Utilities.Enums;
 
 namespace Task.DataInfrastructure.Context;
 
@@ -12,9 +7,6 @@ public partial class TaskDbContext : DbContext
 {
     public TaskDbContext(DbContextOptions<TaskDbContext> options)
         : base(options)
-    {
-    }
-    public TaskDbContext()
     {
     }
 

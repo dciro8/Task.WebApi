@@ -4,7 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using System.Runtime;
+using Task.Application.Services;
+using Task.DataInfrastructure.Base;
 using Task.DataInfrastructure.Context;
+using Task.DataInfrastructure.Repository;
+using Task.Domain.Ports;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +38,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddFluentValidation();
 
+builder.Services.AddTransient<TaskService>();
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
 //builder.Services.AddDbContext<TaskDbContext> (ServiceLifetime.Transient);
 var app = builder.Build();
@@ -44,6 +50,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseCors(builder => builder
        .AllowAnyHeader()

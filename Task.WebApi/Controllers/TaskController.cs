@@ -3,6 +3,7 @@ using Task.Application.Services;
 using Task.DataInfrastructure.Context;
 using Task.DataInfrastructure.Repository;
 using Task.Domain.Entities;
+using Task.Domain.Ports;
 using Task.Models.Models;
 using Task.WebApi.Validations;
 
@@ -12,17 +13,10 @@ namespace Task.WebApi.Controllers
     [Route("api/[controller]")]
     public class TaskController : ControllerBase
     {
-        TaskDbContext _taskDbContext = new TaskDbContext();
-        public TaskController(TaskDbContext taskDbContext) {
-            _taskDbContext = taskDbContext;
-        }
-
-        TaskService createService()
-        {            
-            TaskRepository repository = new TaskRepository(_taskDbContext);
-            TaskService service = new TaskService(repository);
-            return service;
-
+        private readonly TaskService _taskService;
+        public TaskController(TaskService taskService)
+        {
+            _taskService = taskService;
         }
 
         [HttpGet]
@@ -30,8 +24,7 @@ namespace Task.WebApi.Controllers
         public RequestResultModel<List<TaskDTO>> Get()
         {
             RequestResultModel<List<TaskDTO>> response = new Models.Models.RequestResultModel<List<TaskDTO>>();
-            var service = createService();
-            response.result = service.Get().Select(x => new TaskDTO
+            response.result = _taskService.Get().Select(x => new TaskDTO
             {
                 Id = x.Id,
                 Title = x.Title,
@@ -72,8 +65,7 @@ namespace Task.WebApi.Controllers
                     Date_Created = DateTime.Now,
                 };
 
-                var service = createService();
-                service.Add(entity);
+                _taskService.Add(entity);
 
                 response.isSuccessful = true;
                 response.result = new TaskDTO { Title = entity.Title };
@@ -122,8 +114,7 @@ namespace Task.WebApi.Controllers
                 };
 
 
-                var service = createService();
-                service.Edit(entity);
+                _taskService.Edit(entity);
 
                 response.isSuccessful = true;
                 response.result = new TaskDTO { Title = entity.Title };
@@ -146,8 +137,7 @@ namespace Task.WebApi.Controllers
             RequestResultModel<TaskDTO> response = new Models.Models.RequestResultModel<TaskDTO>();
             try
             {
-                var service = createService();
-                service.Delete(objDto.Id);
+                _taskService.Delete(objDto.Id);
                 response.isSuccessful = true;
                 response.result = objDto;
 
