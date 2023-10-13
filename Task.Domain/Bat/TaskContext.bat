@@ -1,0 +1,2 @@
+Scaffold-DbContext "User Id=sa;Password=David1002;Data Source=DESKTOP-A07DJ1C\\ciro-;"  -contextDir C:\Users\ciro-\Downloads\TechnicalTestTask-main\TechnicalTestTask-main - copia\TaskApi\Task.WebApi\Task.DataInfrastructure\Context\  -OutputDir C:\Users\ciro-\Downloads\TechnicalTestTask-main\TechnicalTestTask-main - copia\TaskApi\Task.WebApi\Task.Domain\Entities\ Microsoft.EntityFrameworkCore.SqlServer -Schemas taskproject -UseDatabaseNames -NoPluralize -Tables TASK -f -Context TaskDbContext
+pause
