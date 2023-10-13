@@ -1,4 +1,3 @@
-# Task.WebApiTechnicalTestTask
 Sistema de Gestión de Tareas
 
 Este proyecto consiste en una prueba técnica, la cual está estructurada de la siguiente forma:
@@ -11,39 +10,24 @@ Se desarrolla este proyecto teniendo en cuenta las versiones más actuales y est
 Desarrollo de la prueba
 Para que la aplicación funcione correctamente, es necesario tener en cuenta los siguientes pasos:
 
-****
 
 Base de datos
-Ejecutar los scripts con un usuario que tenga los privilegios 'sysdba':
+Ejecutar el scripts:
 
-1.users.sql
-2.objects.sql
-En estos scripts se encuentra la forma de crear el esquema y los objetos de base de datos que se necesitarán.
-
-Ejecutar los scripts en un ambiente de Oracle y tener en cuenta el ConnectionString de la aplicación, se debe realizar la encriptación de este dato.
-
-TaskClient
-En este proyecto se encuentra la estructura del cliente, que se desarrolló en AngularJS. Se integró el framework PrimeNG
-En la ruta de la carpeta \TaskClient ejecutar npm install, para obtener todos los paquetes requeridos para que el cliente funcione. En el cliente, se pueden realizar las operaciones CRUD y los demás puntos solicitados.
-
-Para el consumo de la API desde el cliente se, utiliza HttpClient, ya que con este objeto se realizan solicitudes HTTP y se maneja la respuesta del servidor. El servicio HttpClient tiene la responsabilidad de implementar otras funcionalidades como interceptores y encabezados.
+1.PruebaPactia.sql
+En este scripts se encuentra la creación de la base de datos y de la tabla.
 
 TaskAPI
 En este proyecto se encuentra el backend de la aplicación, desarrollado implementando la arquitectura hexagonal. Esta arquitectura nos expone una aplicación totalmente independiente que puede ser usada de la misma forma por usuarios, programas, pruebas automatizadas o scripts, y puede ser desarrollada y probada de forma aislada de sus eventuales dispositivos y bases de datos en tiempo de ejecución.
 
 Estructura del proyecto
 Task.WebAPI
-Task.Utilities
-Task.UnitTest
+Task.UnitTest(Pendiente)
 Task.Models
 Task.Domain
 Task.DataInfrastructure
-Task.Application
+
 Se comienza a crear el proyecto desde la capa de Domain, ya que así es como se orienta en la arquitectura hexagonal.
-
-Se incluye una capa transversal Task.Utilities, la cual contiene datos y parámetros.
-![image](https://github.com/dciro8/Task.WebApi/assets/13178792/29fc6613-5d4d-425a-8f0a-cbc904520f54)
-
 
 Se integra el ORM (Object Relational Mapping) Entity Framework, el cual nos ayuda a mapear las entidades de la base de datos en nuestra API.
 
