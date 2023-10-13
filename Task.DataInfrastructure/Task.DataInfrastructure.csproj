@@ -20,8 +20,4 @@
     <ProjectReference Include="..\Task.Utilities\Task.Utilities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="EntitiesMaster\" />
-  </ItemGroup>
-
 </Project>

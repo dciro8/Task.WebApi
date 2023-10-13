@@ -12,12 +12,15 @@ namespace Task.WebApi.Controllers
     [Route("api/[controller]")]
     public class TaskController : ControllerBase
     {
-        TaskService createService()
-        {
-            TaskDbContext db = new TaskDbContext();
-            TaskRepository repository = new TaskRepository(db);
-            TaskService service = new TaskService(repository);
+        TaskDbContext _taskDbContext = new TaskDbContext();
+        public TaskController(TaskDbContext taskDbContext) {
+            _taskDbContext = taskDbContext;
+        }
 
+        TaskService createService()
+        {            
+            TaskRepository repository = new TaskRepository(_taskDbContext);
+            TaskService service = new TaskService(repository);
             return service;
 
         }

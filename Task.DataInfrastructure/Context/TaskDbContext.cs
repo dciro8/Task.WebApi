@@ -35,14 +35,5 @@ public partial class TaskDbContext : DbContext
 
         OnModelCreatingPartial(modelBuilder);
     }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        string key = Params.KeyEncrypt;
-
-        string connectionString = Encrypt.DecryptString(key, Params.ConecctionString);
-
-        optionsBuilder.UseSqlServer(connectionString);
-    }
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

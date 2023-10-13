@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
+using System.Runtime;
 using Task.DataInfrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,12 @@ builder.Configuration
     .SetBasePath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))
     .AddJsonFile("appsettings.json", false, true)
     .Build();
+
+
+builder.Services.AddDbContext<TaskDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetSection("ConnectionString").Value);
+});
 
 builder.Services.AddControllers().AddFluentValidation(options =>
 {
