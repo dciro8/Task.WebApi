@@ -67,7 +67,6 @@ namespace Task.WebApi.Controllers
                     Description = objDto.Description,
                     Status = objDto.State,
                     Date_Created = DateTime.Now,
-                    //DATE_LIMIT = DateTime.Now.AddDays(5),
                 };
 
                 var service = createService();
